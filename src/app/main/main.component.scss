@@ -1,0 +1,73 @@
+
+@mixin auth($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+
+    
+    .sidenav{
+        background-color: #000000;
+        background-image: linear-gradient(315deg, #000000 0%, #414141 74%);        overflow: hidden;
+        position: relative;
+        width: 250px;
+    }
+    .drawer{
+        background: mat-color($primary,400);    
+        overflow: hidden;
+        position: relative;
+        width: 80px;
+    }
+    [no-over-flow] {
+        overflow: hidden;
+    }
+    .router-outlet{
+        position: relative;padding: 0px 5px;
+    }
+    .spacer {
+        width: 100%;
+    }
+
+    .logo{
+        font-size: 26px;font-family: Roboto;color:white;margin-top: 8px;
+    }
+}
+.mat-toolbar.mat-primary {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);    color: white;
+}
+
+.drawer {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+}
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #f2f6fa;
+    border-radius: .25rem;
+}
+
+ol {
+    margin-top:0;
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    background-color: #f2f6fa;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: "/";
+}

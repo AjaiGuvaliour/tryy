@@ -4,7 +4,6 @@ import {
   state,
   style,
   animate,
-  transition,
   query,
 } from '@angular/animations'
 @Component({

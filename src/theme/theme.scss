@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
-@import '../app/auth/auth.component.scss';
-@import '../app/core/sidemenu/sidemenu.component.scss';
-@import '../app/core/sidemenu-item/sidemenu-item.component.scss';
+@import '../app/main/main.component.scss';
+@import '../app/sharedModule/sidenavSettings/sidemenu/sidemenu.component.scss';
+@import '../app/sharedModule/sidenavSettings/sidemenu-item/sidemenu-item.component.scss';
 
 
 $mat-light-theme-background: (
@@ -66,12 +66,15 @@ cdk-profile-card{
 @include auth($cdk-theme);
 
 html {
-  height:100%;
+  height:100vh;
 }
 body{
   padding: 0px !important;
   margin: 0px !important;
-  height:100%;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
 }
 .components-container-gt-xs {
     padding: 20px;
@@ -89,12 +92,10 @@ body{
 }
 
 .loader-container {
-    background-color: white;
-    width: 100vw;
-    height: 100vh;
     z-index: 2000;
-    position: absolute;
 
+    position: absolute;
+    left:50%;
     -moz-animation: cssAnimation 1s ease-in 3s forwards;
     /* Firefox */
     animation: cssAnimation 1s ease-in 3s forwards;
