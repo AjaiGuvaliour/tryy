@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'cdk-sidebar',
+  selector: 'jabs-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })

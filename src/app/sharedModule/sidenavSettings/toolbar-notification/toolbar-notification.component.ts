@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'cdk-toolbar-notification',
+  selector: 'jabs-toolbar-notification',
   templateUrl: './toolbar-notification.component.html',
   styleUrls: ['./toolbar-notification.component.scss']
 })

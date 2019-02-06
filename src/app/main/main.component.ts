@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
+
 import { RouterStateSnapshot, ActivatedRouteSnapshot, Router, ActivatedRoute } from '@angular/router';
 import { AuthGuard } from '../sharedModule/Services/auth.guard';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -22,12 +23,12 @@ export class MainComponent implements OnInit {
    this.visibility = this.isVisible ? 'shown' : 'hidden';
   }
 
-	constructor(private media: ObservableMedia,private routes: AuthGuard) { 
+	constructor(private media: MediaObserver,private routes: AuthGuard) { 
         
     }
 
 	ngOnInit() {
-		this.media.subscribe((mediaChange: MediaChange) => {
+		this.media.media$.subscribe((mediaChange: MediaChange) => {
             this.toggleView();
         });
 	}

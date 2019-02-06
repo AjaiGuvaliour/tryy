@@ -21,8 +21,8 @@
   },
   {
     "from": {
-      "name": "Hari",
-      "mail": "Hari@codetok.com"
+      "name": "Ajai",
+      "mail": "ajai@jabs.com"
     },
     "subject": "Test?",
     "content": "This is a test mail",
@@ -61,8 +61,8 @@
   },
   {
     "from": {
-      "name": "Hari",
-      "mail": "hari@codetok.com"
+      "name": "ajai",
+      "mail": "ajai@jabs.com"
     },
     "subject": "hai",
     "content": "This is a test mail",

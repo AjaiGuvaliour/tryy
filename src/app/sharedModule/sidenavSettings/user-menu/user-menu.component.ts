@@ -2,7 +2,7 @@ import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/cor
 import { Routes, Router } from '@angular/router';
 
 @Component({
-  selector: 'cdk-user-menu',
+  selector: 'jabs-user-menu',
   templateUrl: './user-menu.component.html',
   styleUrls: ['./user-menu.component.scss']
 })

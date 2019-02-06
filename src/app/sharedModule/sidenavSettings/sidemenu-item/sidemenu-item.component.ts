@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'cdk-sidemenu-item',
+    selector: 'jabs-sidemenu-item',
     templateUrl: './sidemenu-item.component.html',
     styleUrls: ['./sidemenu-item.component.scss']
 })

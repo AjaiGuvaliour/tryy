@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ToolbarHelpers } from './toolbar.helpers';
 
 @Component({
-  selector: 'cdk-toolbar',
+  selector: 'jabs-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
