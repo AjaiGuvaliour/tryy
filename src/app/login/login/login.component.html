@@ -1,31 +1,38 @@
 
-<div fxLayout="column" class="login_form" fxLayoutAlign="center center">
-    <h1>Jabs_Erp Pro</h1>
+<div class="container" >
+		<h1>Jabs_Erp Pro</h1>
+		<div class="main_data">
+			 <form [formGroup]="myForm">
+				<table class="example-full-width" cellspacing="0">
+						<h3>SignIn in to your Account</h3>  
 
-	<div  class="form_fields">
-      <h3> Sign in to your Account</h3>
-    <form class="fields" [formGroup]="myForm">
-			<div>
-
-				<mat-form-field class="">
-                <input matInput value="" formControlName="userName" placeholder="user Name" type="text">
-	        	</mat-form-field>
-			</div>
-
-			<div>
-				<mat-form-field class="">
-	            	<input matInput value="" formControlName="password" placeholder="password" type="password">
-	        	</mat-form-field>
-			</div>
-          
-      <div><p><label>Forget Password ?</label></p></div>
-
-	    <div style="position: absolute; top: 119%;">
-	        <mat-card-actions>
-              <button mat-stroked-button full color="primary" (click)="login(myForm.value)">Submit</button>
-	        </mat-card-actions>
-      </div>
-    </form>
-  </div>
-
+					<tr>
+					  <td>
+						<mat-form-field class="example-full-width">
+						<input matInput placeholder="Username"  formControlName = "userName" required>
+						</mat-form-field>
+						<div class="form-control-feedback"
+						  *ngIf="myForm.controls.userName.errors && (myForm.controls.userName.dirty || myForm.controls.userName.touched)">
+						  <p *ngIf="myForm.controls.userName.errors.required">userName is required</p>
+					  </div>
+					  </td>
+					</tr>
+					<tr>
+					<td><mat-form-field class="example-full-width">
+					  <input matInput placeholder="Password" type="password" formControlName = "password" required>
+					</mat-form-field>
+					<div class="form-control-feedback"
+                       *ngIf="myForm.controls.password.errors && (myForm.controls.password.dirty || myForm.controls.password.touched)">
+                       <p *ngIf="myForm.controls.password.errors.required">Password is required</p>
+                     </div>
+				</td>
+				  </tr>
+				<tr>
+					<td>
+						<button mat-button [disabled]="!myForm.valid"  (click)="login(myForm.value)" >Submit</button>
+					</td>
+				</tr>
+				</table>
+			 </form>
+		</div>
 </div>

@@ -65,16 +65,13 @@ jabs-profile-card{
 @include angular-material-theme($jabs-theme);
 @include auth($jabs-theme);
 
-html {
-  height:100vh;
+
+*{
+  padding: 0px;
+  margin: 0;
 }
 body{
-  padding: 0px !important;
-  margin: 0px !important;
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  top: 0;
+    height: 100vh;
 }
 .components-container-gt-xs {
     padding: 20px;

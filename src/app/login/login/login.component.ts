@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AppService } from '../../sharedModule/Services/app.service';
+import { UserDetails } from '../login';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.myForm = this.formBuilder.group({
-        userName: [''],
-        password: ['']
+        userName: ['',new FormControl('',Validators.required)],
+        password: ['',new FormControl('',Validators.required)]
       })
   }
 
-  login(formValue: any){
+  login(formValue: UserDetails){
+    if(formValue){
     //  this.service.getService('').subscribe(resp=>{console.log(resp)})
-    console.log(formValue)
-    localStorage.setItem('login','hai');
-    this.router.navigate(['/main/department'])
+    // console.log(formValue)
+     localStorage.setItem('login','hai');
+     this.router.navigate(['/main/department'])
+    }
   }
 }

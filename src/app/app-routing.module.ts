@@ -13,6 +13,7 @@ const routes: Routes = [
         path:'main',
         component:MainComponent,
         canActivate:[AuthGuard],
+        
         children:[
             {
                 path:'department',
@@ -21,7 +22,6 @@ const routes: Routes = [
         ]
 
     },
-
 ];
 
 @NgModule({

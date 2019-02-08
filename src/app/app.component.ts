@@ -6,6 +6,7 @@ import {
   animate,
   query,
 } from '@angular/animations'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +15,13 @@ import {
 
 })
 export class AppComponent {
+  constructor(private routes : Router){
+    if(localStorage.getItem('login')){
+        this.routes.navigate(['main/department/manageDepartment'])
+    } else {
+        this.routes.navigate(['/login'])
+    }
+  }
   title = 'app';
   getRouteAnimation(outlet) {
       

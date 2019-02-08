@@ -10,7 +10,7 @@ import { AuthGuard } from '../sharedModule/Services/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'manageDepartment'
+    redirectTo:'manageDepartment',pathMatch:'full'
   },
   {
     path: 'addDepartment',
@@ -41,7 +41,8 @@ const routes: Routes = [
     component: ManageStaffComponent,
     canActivate:[AuthGuard]
 
-  }
+  },
+
 ];
 
 @NgModule({
