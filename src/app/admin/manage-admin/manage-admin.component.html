@@ -3,12 +3,52 @@
 
       <div class="addPopup" *ngIf="addAdmin">
           <button class="add" (click)="addAdminDetails()">x</button>
-          <app-addadmin (adminClick)="adminCreated($event)"></app-addadmin>
+          <app-addadmin  (adminClick)="adminCreated($event)"></app-addadmin>
         </div>
 		<mat-toolbar class="form-header">
       <span class="mat-headline center-align" >Manage Admin</span>
       <button class="add" (click)="addAdminDetails()"><mat-icon>add</mat-icon></button>
 		</mat-toolbar>		
-  
+    <div class="table-container">
+			<mat-table #table [dataSource]="dataSource">
+
+				<!--- Note that these columns can be defined in any order.
+				The actual rendered columns are set as a property on the row definition" -->
+
+				<!-- ID Column -->
+				<ng-container matColumnDef="username">
+					<mat-header-cell *matHeaderCellDef> username </mat-header-cell>
+					<mat-cell *matCellDef="let row"> {{row.username}} </mat-cell>
+				</ng-container>
+
+				<!-- Progress Column -->
+				<ng-container matColumnDef="email">
+					<mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+					<mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+				</ng-container>
+
+				<!-- Name Column -->
+				<ng-container matColumnDef="userRoles">
+					<mat-header-cell *matHeaderCellDef> userRoles </mat-header-cell>
+					<mat-cell *matCellDef="let row"> {{row.userRoles}} </mat-cell>
+				</ng-container>
+
+				<!-- Color Column -->
+				<ng-container matColumnDef="phoneNum">
+					<mat-header-cell *matHeaderCellDef> phoneNum </mat-header-cell>
+					<mat-cell *matCellDef="let row"> {{row.phoneNum}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let row" >
+               <button mat-raised-button class="btn" (click)="edit(row)"><mat-icon>edit</mat-icon></button> 
+               <button mat-raised-button  class="btn" (click)="delete(row)"><mat-icon>delete</mat-icon></button> 
+          </mat-cell>
+      </ng-container> 
+				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+			</mat-table>
+		</div>
 	</div>
 </div>

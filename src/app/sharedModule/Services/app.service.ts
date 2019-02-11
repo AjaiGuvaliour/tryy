@@ -8,6 +8,7 @@ import {baseUrl} from '../../../environments/environment';
 })
 export class AppService {
 
+  
   constructor(private http : HttpClient ) { }
   
   option = new HttpHeaders({'Content-Type':'application/json'})
@@ -20,7 +21,7 @@ export class AppService {
     return this.http.post(baseUrl+url,data,{ headers: this.option }).pipe(catchError(this.handleError));
   }
 
-  deleteService(url: any,id: any): Observable<any>{
+  deleteService(url: any): Observable<any>{
     return this.http.delete(baseUrl+url,{ headers: this.option }).pipe(catchError(this.handleError));
   }
 

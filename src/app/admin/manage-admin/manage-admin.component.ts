@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../sharedModule/Services/app.service';
+import { DataService } from '../../sharedModule/Services/dataService/data-service.service';
 
 @Component({
   selector: 'app-manage-admin',
@@ -7,18 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageAdminComponent implements OnInit {
   addAdmin: boolean = false;
-  constructor() { }
+  public displayedColumns = ['username', 'email', 'userRoles', 'phoneNum','action'];
 
+  constructor(private service : AppService,private dataService: DataService) { }
+  dataSource : any =[];
   ngOnInit() {
+     this.getDetails();
   }
 
+  getDetails(){
+    this.service.getService('admin/getAll').subscribe(resp=>{
+      if(resp.success)
+      this.getAdmin(resp);
+   })
+  }
+  getAdmin(resp: any){
+    if(resp.success){
+      this.dataSource  = resp.data;
+    }
+  }
   addAdminDetails(){
-    this.addAdmin = ! this.addAdmin
+    this.addAdmin = ! this.addAdmin;
+    this.dataService.updateAdminDetails([]);
+
+  }
+  edit(details : any){
+    this.dataService.updateAdminDetails(details);
+    this.addAdmin = ! this.addAdmin;
+  }
+  delete(details : any){
+    this.service.deleteService('admin/deleteById/'+details.ID).subscribe(resp=>{
+      if(resp.success)
+      this.getDetails();
+        alert("successfully Deleted");
+    })
   }
   adminCreated(event){
     if(event.success){
-      this.addAdmin = ! this.addAdmin
-      alert(event.message);
+      this.addAdmin = ! this.addAdmin;
+      this.getDetails();
     }
   }
 }
