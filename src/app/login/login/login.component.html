@@ -9,11 +9,11 @@
 					<tr>
 					  <td>
 						<mat-form-field class="example-full-width">
-						<input matInput placeholder="Username"  formControlName = "userName" required>
+						<input matInput placeholder="email"  formControlName = "email" required>
 						</mat-form-field>
 						<div class="form-control-feedback"
-						  *ngIf="myForm.controls.userName.errors && (myForm.controls.userName.dirty || myForm.controls.userName.touched)">
-						  <p *ngIf="myForm.controls.userName.errors.required">userName is required</p>
+						  *ngIf="myForm.controls.email.errors && (myForm.controls.email.dirty || myForm.controls.email.touched)">
+						  <p *ngIf="myForm.controls.email.errors.required">email is required</p>
 					  </div>
 					  </td>
 					</tr>

@@ -18,6 +18,10 @@ const routes: Routes = [
             {
                 path:'department',
                 loadChildren:'./department/department.module#DepartmentModule',
+            },
+            {
+                path:'admin',
+                loadChildren:'./admin/admin.module#AdminModule',
             }
         ]
 

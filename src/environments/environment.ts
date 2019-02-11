@@ -29,3 +29,5 @@ export const palete = {
     quaternaryLight: '#673AB7',
     quinaryLight: '#3F51B5'       
 }
+
+export const baseUrl = "http://localhost:3000/"

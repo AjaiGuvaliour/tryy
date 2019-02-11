@@ -10,7 +10,7 @@ export const menus = [
                 'link': false,
                 'icon': 'dashboard',
                 'chip': false,
-                'open': true,
+                'open': false,
             }
         ]
     },

@@ -9,11 +9,12 @@ import { ManageStudentComponent } from './student/manage-student/manage-student.
 import { AddStudentComponent } from './student/add-student/add-student.component';
 import { ManageDepartmentComponent } from './department/manage-department/manage-department.component';
 import { AddDepartmentComponent } from './department/add-department/add-department.component';
+import { CoreModule } from '../sharedModule/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    DepartmentRoutingModule
+    DepartmentRoutingModule,CoreModule
   ],
   declarations: [ManageDepartmentComponent, AddDepartmentComponent, ManageStaffComponent, AddStaffComponent, ManageStudentComponent, AddStudentComponent]
 })

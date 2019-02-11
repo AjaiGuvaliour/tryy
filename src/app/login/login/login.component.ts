@@ -16,17 +16,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.myForm = this.formBuilder.group({
-        userName: ['',new FormControl('',Validators.required)],
+        email: ['',new FormControl('',Validators.required)],
         password: ['',new FormControl('',Validators.required)]
       })
   }
 
   login(formValue: UserDetails){
     if(formValue){
-    //  this.service.getService('').subscribe(resp=>{console.log(resp)})
-    // console.log(formValue)
-     localStorage.setItem('login','hai');
-     this.router.navigate(['/main/department'])
+     this.service.postService('authentication/login',formValue).subscribe(resp=>{
+       this.userLogin(resp);
+    })
+    }
+  }
+  userLogin(resp: any){
+    if(resp.success){
+      localStorage.setItem('token',JSON.stringify(resp.data));
+      this.router.navigate([resp.data['menuDetails']['mainmenu']])
+    }
+    else{
+
     }
   }
 }

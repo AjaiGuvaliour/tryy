@@ -16,7 +16,26 @@
 .form-container {
 	padding: 5px 15px 15px 15px;
 }
+mat-toolbar{
+    display: inline-block;
+}
+.add{
+    float: right;
+    margin: 14px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0eef3;
+}
 .form-component-holder {
-	border: 1px solid #327ebd;
 	background-color: white;
+}
+.addPopup{
+    width:100%;
+    background-color: white;
+    z-index:99999;
+    left:0px;
+    position:absolute;
 }

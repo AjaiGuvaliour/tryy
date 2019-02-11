@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { menus } from './menu-element';
 
 @Component({
   selector: 'jabs-sidemenu',
@@ -9,9 +8,10 @@ import { menus } from './menu-element';
 export class SidemenuComponent implements OnInit {
 
     @Input() iconOnly:boolean = false;
-    public menus = menus;
-
-    constructor() { }
+    menus : any;
+    constructor() {
+      this.menus = JSON.parse(localStorage.getItem('token'))['menuDetails']['sidemenu'];
+     }
 
     ngOnInit() {
     }

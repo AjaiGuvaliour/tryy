@@ -16,15 +16,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private routes : Router){
-    if(localStorage.getItem('login')){
-        this.routes.navigate(['main/department/manageDepartment'])
-    } else {
-        this.routes.navigate(['/login'])
-    }
+
   }
   title = 'app';
   getRouteAnimation(outlet) {
-      
       return outlet.activatedRouteData.animation
   }
 }
