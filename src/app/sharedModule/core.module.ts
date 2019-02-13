@@ -13,6 +13,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 import {
     MatSidenavModule,
@@ -66,6 +67,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatTabsModule,
         MatSliderModule,
         MatProgressBarModule,
+        ToastrModule.forRoot(),
     ],
 
 
@@ -80,6 +82,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatButtonModule,
         MatInputModule,
         MatIconModule,
+        ToastrModule,
         MatCardModule,
         MatChipsModule,
         RouterModule,

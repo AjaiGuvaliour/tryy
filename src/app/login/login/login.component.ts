@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AppService } from '../../sharedModule/Services/app.service';
 import { UserDetails } from '../login';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserDetails } from '../login';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router,private formBuilder: FormBuilder,private service : AppService) { }
+  constructor(private router: Router,private toastr: ToastrManager,private formBuilder: FormBuilder,private service : AppService) { }
   myForm : FormGroup;
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate([resp.data['menuDetails']['mainmenu']])
     }
     else{
-
+      this.toastr.errorToastr(resp.message);
     }
   }
 }

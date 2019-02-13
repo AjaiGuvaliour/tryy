@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppService } from '../../sharedModule/Services/app.service';
 import { DataService } from '../../sharedModule/Services/dataService/data-service.service';
 import { Subscription } from 'rxjs';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-addadmin',
@@ -13,11 +14,12 @@ export class AddadminComponent implements OnInit {
   @Output() adminClick = new EventEmitter<any>();
   adminForm: FormGroup;
   adminEditData = [];
-  constructor(public form: FormBuilder,private service : AppService,private dataService : DataService) { 
+  constructor(public form: FormBuilder,private toster: ToastrManager,private service : AppService,private dataService : DataService) { 
     this.adminForm = this.form.group({
           adminName:['',{validators: [Validators.required]}],
           email:['',Validators.required],
           number:['',{validators: [Validators.required]}],
+          
         });
 }
 
@@ -38,7 +40,10 @@ export class AddadminComponent implements OnInit {
       this.service.postService('admin/update',formValue).subscribe(resp=>{
         if(resp.success){
           this.adminClick.emit(resp)
-          alert("successfully updated");
+          this.toster.successToastr(resp.message);
+        }
+        else{
+          this.toster.errorToastr(resp.message);
         }
       })
   }
@@ -46,7 +51,10 @@ export class AddadminComponent implements OnInit {
       this.service.postService('admin/addAdmin',formValue).subscribe(resp=>{
         if(resp.success){
           this.adminClick.emit(resp)
-          alert("successfully registered");
+          this.toster.successToastr(resp.message);
+        }
+        else{
+          this.toster.errorToastr(resp.message);
         }
       })
   }
